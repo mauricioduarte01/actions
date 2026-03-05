@@ -1,0 +1,11 @@
+name: test basics
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  test-job1:
+    runs-on: ubuntu-22.04
+    steps:
+      - run: echo "hello world"
+  
