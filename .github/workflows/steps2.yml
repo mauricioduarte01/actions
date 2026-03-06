@@ -1,0 +1,27 @@
+name: test envar scopes
+
+on:
+  workflow_dispatch:
+env:
+  GLOBAL_ENV: This is global
+
+jobs:
+  job-1:
+    runs-on: ubuntu-22.04
+    env:
+      JOB_SCOPE_ONE_ENV: This is job-1 scoped env
+    steps:
+    env:
+       STEP_SCOPE_ENV: This is step scoped env
+      run: |
+        echo "Global env=$GLOBAL_END" 
+        echo "Job env=$JOB_SCOPE_ENV"
+        echo "STEPS env=$STEP_SCOPE_ENV"
+
+  job-2:
+    runs-on: ubuntu-22.04
+    steps:
+      run: |
+        echo "Global env=$GLOBAL_END" 
+        echo "Job env=$JOB_SCOPE_ENV"
+        echo "STEPS env=$STEP_SCOPE_ENV"
