@@ -15,9 +15,9 @@ jobs:
         env:
            STEP_SCOPE_ENV: This is step scoped env
         run: |
-          echo "Global env=$GLOBAL_END" 
-          echo "Job env=$JOB_SCOPE_ENV"
-          echo "STEPS env=$STEP_SCOPE_ENV"
+          echo "Global env= $GLOBAL_END" 
+          echo "Job env= $JOB_SCOPE_ENV"
+          echo "STEPS env= $STEP_SCOPE_ENV"
 
 
   job-2:
@@ -25,6 +25,6 @@ jobs:
     steps:
       - name: job-2 stage
         run: |
-          echo "Global env=$GLOBAL_END" 
-          echo "Job env=$JOB_SCOPE_ENV"
-          echo "STEPS env=$STEP_SCOPE_ENV"
+          echo "Global env= $GLOBAL_END" 
+          echo "Job env= $JOB_SCOPE_ENV"
+          echo "STEPS env= $STEP_SCOPE_ENV"
