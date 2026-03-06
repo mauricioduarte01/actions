@@ -1,0 +1,23 @@
+# check envs
+
+name: check envs scopes
+
+on:
+  workflow_dispatch:
+env:
+  GLOBAL_VAR: this is a global envar
+
+jobs:
+  job1:
+    runs-on: ubuntu-22.04
+    env:
+      JOB_VAR: this is a job envar
+      steps:
+        - name: test-envar-scopes
+        env:
+          STEP_VAR: this is a step envar
+        run: |
+          echo $GLOBAL_VAR
+          echo $JOB_VAR
+          echo $STEP_VAR
+          
