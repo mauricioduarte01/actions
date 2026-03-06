@@ -14,10 +14,11 @@ jobs:
       JOB_VAR: this is a job envar
     steps:
       - name: test-envar-scopes
-      env:
-        STEP_VAR: this is a step envar
-      run: |
-        echo $GLOBAL_VAR
-        echo $JOB_VAR
-        echo $STEP_VAR
-          
+        env:
+          STEP_VAR: this is a step envar
+        run: |
+          echo $GLOBAL_VAR
+          echo $JOB_VAR
+          echo $STEP_VAR
+
+
