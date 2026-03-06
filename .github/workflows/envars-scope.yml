@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-22.04
     env:
       JOB_VAR: this is a job envar
-      steps:
-        - name: test-envar-scopes
-        env:
-          STEP_VAR: this is a step envar
-        run: |
-          echo $GLOBAL_VAR
-          echo $JOB_VAR
-          echo $STEP_VAR
+    steps:
+      - name: test-envar-scopes
+      env:
+        STEP_VAR: this is a step envar
+      run: |
+        echo $GLOBAL_VAR
+        echo $JOB_VAR
+        echo $STEP_VAR
           
