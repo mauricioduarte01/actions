@@ -21,4 +21,12 @@ jobs:
           echo $JOB_VAR
           echo $STEP_VAR
 
-
+  job-2:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: job-2-test-scope
+        run: |
+          echo $GLOBAL_VAR
+          echo $JOB_VAR
+          echo $STEP_VAR
+        
