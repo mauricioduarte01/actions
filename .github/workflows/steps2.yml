@@ -20,6 +20,7 @@ jobs:
           echo "Step test scope: $STEP_ENV_SCOPE"
 
   job-2-test:
+    needs: job-1-test
     runs-on: ubuntu-22.04
     steps:
       - name: second job
