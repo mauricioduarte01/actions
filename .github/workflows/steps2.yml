@@ -17,13 +17,15 @@ jobs:
         run: |
           echo "Scope test global: $GLOBAL_ENV"
           echo "Job test scope: $JOB_ENV_SCOPE"
-          echo "Step test scope: $STEP_SCOPE"
+          echo "Step test scope: $STEP_ENV_SCOPE"
 
   job-2-test:
     runs-on: ubuntu-22.04
     steps:
       - name: second job
+        env:
+          STEP_ENV_SCOPE: This is second job scope env!
         run: |
           echo "Scope test global: $GLOBAL_ENV"
           echo "Job test scope: $JOB_ENV_SCOPE"
-          echo "Step test scope: $STEP_SCOPE"
+          echo "Step test scope: $STEP_ENV_SCOPE"
