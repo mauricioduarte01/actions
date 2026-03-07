@@ -1,30 +1,29 @@
-name: test envar scopes
+name: test-template
 
-on:
+on: 
   workflow_dispatch:
 env:
-  GLOBAL_ENV: This is global
+  GLOBAL_ENV: This is the global scope
 
 jobs:
-  job-1:
+  job-1-test:
     runs-on: ubuntu-22.04
     env:
-      JOB_SCOPE_ONE_ENV: This is job-1 scoped env
+      JOB_ENV_SCOPE: This is the job-1-test scope
     steps:
-      - name: job-1 stage
+      - name: first job
         env:
-           STEP_SCOPE_ENV: This is step scoped env
+          STEP_ENV_SCOPE: This is job-1 step scope
         run: |
-          echo "Global env= $GLOBAL_ENV" 
-          echo "Job env= $JOB_SCOPE_ONE_ENV"
-          echo "STEPS env= $STEP_SCOPE_ENV"
+          echo "Scope test global: $GLOBAL_ENV"
+          echo "Job test scope: $JOB_ENV_SCOPE"
+          echo "Step test scope: $STEP_SCOPE"
 
-
-  job-2:
+  job-2-test:
     runs-on: ubuntu-22.04
     steps:
-      - name: job-2 stage
+      - name: second job
         run: |
-          echo "Global env= $GLOBAL_ENV" 
-          echo "Job env= $JOB_SCOPE_ONE_ENV"
-          echo "STEPS env= $STEP_SCOPE_ENV"
+          echo "Scope test global: $GLOBAL_ENV"
+          echo "Job test scope: $JOB_ENV_SCOPE"
+          echo "Step test scope: $STEP_SCOPE"
